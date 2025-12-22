@@ -12,11 +12,7 @@ The pipeline combines:
 ## What “domain-aware” and “device-aware” mean
 
 - **Domain-aware**: MNIST images are downsampled to 16×16, split into 4×4 blocks, and scanned in **zigzag order**. This preserves local image structure and maps it into a 1D angle vector used to drive rotation gates in the circuit.
-- **Device-aware**: The circuit is built from a gate set tailored to superconducting hardware:
-  - Native 1-qubit gates: `rz` (optionally `rx`, `ry` when `add_rotations=True`).
-  - Native 2-qubit gates: `ecr` with a ring entanglement pattern matching typical nearest-neighbor connectivity.
-  This layout is exported to Qiskit using the same gate set used in training.
-
+- **Device-aware**: The circuit uses single-qubit rz (optionally rx, ry) and native two-qubit ecr gates arranged in a ring entanglement pattern, mirroring the nearest-neighbor connectivity of typical superconducting quantum processors.
 ---
 
 ## Repository Structure
@@ -127,4 +123,18 @@ python inference.py
 
 ## Citation
 
-If you use this code, please cite the associated manuscript on **domain-aware quantum circuit for QML**.
+If you use this code, please cite the following work:
+
+Singh, G., Pellegrini, T., & Merz, K. M. Jr. *Domain-Aware Quantum Circuit for QML*. arXiv:2512.17800 (2025). Available at: https://arxiv.org/abs/2512.17800
+
+```bibtex
+@misc{singh2025domainawarequantumcircuitqml,
+      title        = {Domain-Aware Quantum Circuit for QML},
+      author       = {Gurinder Singh and Thaddeus Pellegrini and Kenneth M. Merz, Jr},
+      year         = {2025},
+      eprint       = {2512.17800},
+      archivePrefix= {arXiv},
+      primaryClass = {quant-ph},
+      url          = {https://arxiv.org/abs/2512.17800}
+}
+
